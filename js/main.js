@@ -1,8 +1,8 @@
 // Game Variables
 var deck = [];
 var dealerHand = [];
-var playerHand = [];
 var player = 'You';
+var playerHand = [];
 var winner = '';
 
 
@@ -101,55 +101,44 @@ function calcPoints(hand) {
   } else {
     ptsTotal += parseInt(card.rank);
   }
-});
+  });
 
-ptsTotal = checkBust(hand, ptsTotal, numAces);
-return ptsTotal;
+  ptsTotal = fixBust(hand, ptsTotal, numAces);
+  return ptsTotal;
 }
 
-function checkBust(hand, pts, aces) {
+function fixBust(hand, pts, aces) {
   // If player busts with ace(s), change pt value from 11 to 1
   // for each ace until pts < 21 OR no aces left to change.
   while(aces && pts > 21) {
     pts -= 10;
     aces -= 1;
   }
-  // After changing ace(s), check for bust
-  if(pts > 21) {
-    if(hand === dealerHand) {
-      winner = player;
-    } else {
-      winner = 'Dealer';
-    }
-    endGame();
-  // Check for win
-  } else if(pts === 21) {
-    if(hand === dealerHand) {
-      winner = 'Dealer';
-    } else {
-      winner = player;
-    }
-    endGame();
-  }
   return pts;
 }
 
-function checkWin() {
+function checkWinner() {
   let dealerPts = calcPoints(dealerHand);
   let playerPts = calcPoints(playerHand);
-  if(dealerPts > playerPts) {
+  if(dealerPts > 21) {
+    return player;
+  } else if(playerPts > 21) {
     return 'Dealer';
+  } else if(dealerPts > playerPts) {
+    return 'Dealer';
+  } else if(dealerPts < playerPts) {
+    return player;
   } else if(dealerPts === playerPts) {
-    return 'Nobody';
+    return 'Nobunny';
   }
-  return player;
 }
 
 function endGame() {
+    let winner = checkWinner();
+    $("#winner").text(winner + " won! Click deal button to play again.");
+    // Show hole card
     $("#dealer-hand img:first-child").replaceWith(displayCard(dealerHand, 0));
     displayPoints("#dealer-points", dealerHand);
-
-    $("#winner").text(winner + " won! Click deal button to play again.");
 }
 
 
@@ -173,16 +162,18 @@ $(document).ready(function() {
     // Player's turn
     hit(playerHand, "#player-hand");
     displayPoints("#player-points", playerHand);
+    if(calcPoints(playerHand) >= 21) {
+      endGame();
+    }
     // Dealer's turn
-    if(winner === '' && calcPoints(dealerHand) < 17) {
+    if(calcPoints(dealerHand) < 17) {
       hit(dealerHand, "#dealer-hand");
     }
   });
 
   $("#stand-button").click(function() {
-    while(winner === '' && calcPoints(dealerHand) < 17) {
+    while(calcPoints(dealerHand) < 17) {
       hit(dealerHand, "#dealer-hand");
-      winner = checkWin();
     }
     endGame();
   });
