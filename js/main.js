@@ -173,8 +173,12 @@ $(document).ready(function() {
   });
 
   $("#stand-button").click(function() {
-    while(calcPoints(dealerHand) < 17) {
-      hit(dealerHand, "#dealer-hand");
+    if(calcPoints(playerHand) === 21) {
+      endGame();
+    } else {
+      while(calcPoints(dealerHand) < 17) {
+        hit(dealerHand, "#dealer-hand");
+      }
     }
     endGame();
   });
