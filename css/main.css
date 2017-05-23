@@ -1,0 +1,49 @@
+body, html {
+  min-height: 100%;
+}
+
+body {
+  background: #7C3C83;
+  background: -webkit-linear-gradient(left top, #7C3C83, #D65671, #FFD64F);
+  background: -o-linear-gradient(bottom right, #7C3C83, #D65671, #FFD64F);
+  background: -moz-linear-gradient(bottom right, #7C3C83, #D65671, #FFD64F);
+  background: linear-gradient(to bottom right, #7C3C83, #D65671, #FFD64F);
+
+  font-family: 'Baloo', sans-serif;
+  font-size: 2em;
+  color: #FFF;
+}
+h1 {
+  font-size: 2em;
+}
+.container {
+  min-height: 60vh;
+  margin-top: 80px;
+  padding: 20px;
+  border-radius: 10px;
+  background: #46309A;
+}
+.row {
+  margin-bottom: 20px;
+}
+.cards {
+  height: 150px;
+}
+.avatar {
+  max-height: 100px;
+}
+#dealer-hand, #player-hand {
+  min-height: 150px;
+  background: rgba(150, 150, 150, 0.2);
+}
+button {
+  font-family: 'Baloo', sans-serif;
+  padding: 2px 15px;
+  border: outset #D65671;
+  border-radius: 5px;
+  background: #D65671;
+  color: #FFF;
+}
+button:hover {
+  border: inset #D65671;
+}
