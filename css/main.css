@@ -16,6 +16,9 @@ body {
 h1 {
   font-size: 2em;
 }
+figcaption {
+  font-size: 0.5em;
+}
 .container {
   min-height: 60vh;
   margin-top: 80px;
@@ -32,7 +35,12 @@ h1 {
 .avatar {
   max-height: 100px;
 }
+.stats {
+  font-family: 'Righteous', sans-serif;
+  font-size: 12px !important;
+}
 #dealer-hand, #player-hand {
+  margin-top: 5px;
   min-height: 150px;
   background: rgba(150, 150, 150, 0.2);
 }
@@ -49,4 +57,117 @@ button {
 }
 button:hover {
   border: inset #D65671;
+}
+
+/* Tooltips */
+.hint {
+    position: relative;
+    display: inline-block;
+}
+.hint .hint-text {
+    visibility: hidden;
+    width: 120px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+
+    position: absolute;
+    z-index: 1;
+    top: -5px;
+    right: 105%;
+    margin-left: -60px;
+
+    opacity: 0;
+    transition: opacity 1s;
+
+    font-size: 0.7em;
+}
+.hint .hint-text::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    margin-top: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent transparent #555;
+}
+.hint:hover .hint-text {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Modals */
+.modals {
+    /*display: none;*/
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    -webkit-animation-name: fadeIn; /* Fade in the background */
+    -webkit-animation-duration: 0.4s;
+    animation-name: fadeIn;
+    animation-duration: 0.4s
+}
+
+/* Modal Content */
+.modals-content {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    -webkit-animation-name: slideIn;
+    -webkit-animation-duration: 0.4s;
+    animation-name: slideIn;
+    animation-duration: 0.4s
+}
+
+/* The Close Button */
+.close {
+    color: #fff;
+    float: right;
+    font-size: 28px;
+    /*font-weight: bold;*/
+}
+.close:hover,
+.close:focus {
+    color: #fff;
+    text-decoration: none;
+    /*cursor: pointer;*/
+}
+.modals-header {
+    padding: 10px 15px 5px 15px;
+    background-color: #7C3C83;
+    color: white;
+}
+.modals-body {
+  background-color: #7C3C83;
+  padding: 20px 15px 5px 15px;
+}
+.modals-footer {
+  padding: 10px 15px 5px 15px;
+  background-color: #7C3C83;
+  color: white;
+}
+@-webkit-keyframes slideIn {
+    from {bottom: -300px; opacity: 0}
+    to {bottom: 0; opacity: 1}
+}
+@keyframes slideIn {
+    from {bottom: -300px; opacity: 0}
+    to {bottom: 0; opacity: 1}
+}
+@-webkit-keyframes fadeIn {
+    from {opacity: 0}
+    to {opacity: 1}
+}
+@keyframes fadeIn {
+    from {opacity: 0}
+    to {opacity: 1}
 }

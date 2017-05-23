@@ -9,9 +9,7 @@
   <link href="https://fonts.googleapis.com/css?family=Baloo|Righteous" rel="stylesheet">
   <link rel="stylesheet" href="/css/main.css">
   <!-- Scripts -->
-  <script src="//code.jquery.com/jquery-3.2.1.min.js"
-  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-  crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
   <script src="/js/main.js"></script>
 </head>
 <body class="">
@@ -31,7 +29,6 @@
         <div id="messages"></div>
         <div class="col-md-2">
           <img class="avatar" src="/img/rabbit.png">
-          <br>
           <label>Dealer<span id="dealer-points" class="points"></span></label>
         </div><!-- .col -->
         <div id="dealer-hand" class="hand col-md-8 text-left">
@@ -40,8 +37,9 @@
 
       <div class="row justify-content-md-center">
         <div class="col-md-2">
-          <img class="avatar" src="/img/giraffe.png">
-          <br>
+          <div id="player-avatar" class="hint">
+            <span class="hint-text">Click to Change Avatar</span>
+          </div>
           <label>You<span id="player-points" class="points"></span>
 </label>
         </div><!-- .col -->
@@ -58,5 +56,23 @@
       </div><!-- .row -->
     </div> <!-- #table -->
   </div><!-- .container -->
+
+  <!-- Player Modal -->
+  <div id="player-modal" class="modals">
+    <div class="modals-content">
+      <div class="modals-header">
+        <span class="close">&times;</span>
+        <h2>I'm a . . .</h2>
+      </div>
+      <div class="modals-body">
+        <div class="row justify-content-md-center text-center"></div>
+      </div>
+      <div class="modals-footer">
+        <h3>Name:</h3>
+      </div>
+    </div>
+
+  </div>
+
 </body>
 </html>

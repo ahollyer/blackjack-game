@@ -2,10 +2,11 @@
 var deck = [];
 var dealerHand = [];
 var player = 'You';
+var playerAvatar = 'giraffe';
 var playerHand = [];
-var winner = '';
 
-
+// Player Info
+var avatars = ['elephant', 'giraffe', 'hippo', 'monkey', 'panda', 'parrot', 'penguin', 'pig', 'snake'];
 
 // Build Card Deck
 function card(rank, suit) {
@@ -67,7 +68,6 @@ function shuffle() {
   // Return cards to deck, clear points
   dealerHand = [];
   playerHand = [];
-  winner = '';
   $("#dealer-hand").empty();
   $("#dealer-points").empty();
   $("#player-hand").empty();
@@ -146,10 +146,26 @@ function endGame() {
 
 
 
-
-
-// Play
 $(document).ready(function() {
+  // CUSTOMIZE NAME/AVATAR
+  $(".hint-text").before("<img class='avatar' src='/img/" + playerAvatar + ".png' alt='" + playerAvatar + "'>");
+
+  avatars.forEach(function(animal) {
+    $(".modals-body .row").append("<div class='col'><img class='avatar img-fluid' src='/img/" + animal + ".png' alt='" + animal + "'><br><figcaption>" + animal + "</figcaption></div>");
+  });
+
+  $("#player-avatar img").click(function() {
+    $("#player-modal").show();
+  });
+  $(".close").click(function() {
+    $("#player-modal").hide();
+  });
+
+
+
+
+
+  // GAMEPLAY
   shuffle();
   deal();
   displayPoints("#player-points", playerHand);
