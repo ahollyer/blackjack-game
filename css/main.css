@@ -36,6 +36,9 @@ h1 {
   min-height: 150px;
   background: rgba(150, 150, 150, 0.2);
 }
+#winner {
+  color: #FFD64F;
+}
 button {
   font-family: 'Baloo', sans-serif;
   padding: 2px 15px;

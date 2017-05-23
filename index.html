@@ -22,6 +22,7 @@
     <div class="row justify-content-md-center">
       <div class="col">
         <h1>BlackJack Bunny</h1>
+        <label id="winner"></label>
       </div><!-- .col -->
     </div><!-- .row -->
 
@@ -30,8 +31,8 @@
         <div id="messages"></div>
         <div class="col-md-2">
           <img class="avatar" src="/img/rabbit.png">
-          <label>dealer: </label>
-          <label id="dealer-points" class="points"></label>
+          <br>
+          <label>Dealer<span id="dealer-points" class="points"></span></label>
         </div><!-- .col -->
         <div id="dealer-hand" class="hand col-md-8 text-left">
         </div><!-- .col -->
@@ -40,8 +41,9 @@
       <div class="row justify-content-md-center">
         <div class="col-md-2">
           <img class="avatar" src="/img/giraffe.png">
-          <label>player: </label>
-          <label id="player-points" class="points"></label>
+          <br>
+          <label>You<span id="player-points" class="points"></span>
+</label>
         </div><!-- .col -->
         <div id="player-hand" class="hand col-md-8 text-left">
         </div><!-- .col -->
