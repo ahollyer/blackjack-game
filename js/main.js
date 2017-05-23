@@ -120,7 +120,9 @@ function fixBust(hand, pts, aces) {
 function checkWinner() {
   let dealerPts = calcPoints(dealerHand);
   let playerPts = calcPoints(playerHand);
-  if(dealerPts > 21) {
+  if(dealerPts > 21 && playerPts > 21) {
+    return 'Nobunny';
+  } else if(dealerPts > 21) {
     return player;
   } else if(playerPts > 21) {
     return 'Dealer';
@@ -164,9 +166,8 @@ $(document).ready(function() {
     displayPoints("#player-points", playerHand);
     if(calcPoints(playerHand) >= 21) {
       endGame();
-    }
     // Dealer's turn
-    if(calcPoints(dealerHand) < 17) {
+    } else if(calcPoints(dealerHand) < 17) {
       hit(dealerHand, "#dealer-hand");
     }
   });
