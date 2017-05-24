@@ -40,8 +40,9 @@
           <div id="player-avatar" class="hint">
             <span class="hint-text">Click to Change Avatar</span>
           </div>
-          <label><span id="player-points" class="points"></span>
-</label>
+          <label>
+            <span id="your-name"></span><span id="player-points" class="points"></span>
+          </label>
         </div><!-- .col -->
         <div id="player-hand" class="hand col-md-8 text-left">
         </div><!-- .col -->
@@ -67,7 +68,7 @@
           <div class="row justify-content-md-center text-center"></div>
         </div><!-- .modals-body -->
         <div class="modals-footer">
-          <form class="form-inline">
+          <form class="form-inline" onsubmit="return false;">
             <label for="name-field">Name: </label>
             <input type="text" class="form-control" id="name-field" placeholder="You">
 
@@ -76,7 +77,7 @@
         </div><!-- .modals-footer -->
       </div><!-- .modals-content -->
     </div><!-- .player-modal -->
-    
+
   </div><!-- .container -->
 
 

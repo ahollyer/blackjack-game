@@ -2,18 +2,9 @@ body, html {
   min-height: 100%;
 }
 body {
-  background: #7C3C83;
-  background: -webkit-linear-gradient(left top, #7C3C83, #D65671, #FFD64F);
-  background: -o-linear-gradient(bottom right, #7C3C83, #D65671, #FFD64F);
-  background: -moz-linear-gradient(bottom right, #7C3C83, #D65671, #FFD64F);
-  background: linear-gradient(to bottom right, #7C3C83, #D65671, #FFD64F);
-
+  background: #46309A;
   font-family: 'Baloo', sans-serif;
-  font-size: 2em;
   color: #FFF;
-}
-h1 {
-  font-size: 2em;
 }
 figcaption {
   font-size: 0.5em;
@@ -37,7 +28,6 @@ form input {
 }
 .container {
   min-height: 60vh;
-  margin-top: 80px;
   padding: 20px;
   border-radius: 10px;
   background: #46309A;
@@ -46,7 +36,7 @@ form input {
   margin-bottom: 20px;
 }
 .cards {
-  max-height: 100%;
+  max-height: 130px;
 }
 .avatar {
   max-height: 100px;
@@ -57,11 +47,49 @@ form input {
 }
 #dealer-hand, #player-hand {
   margin-top: 5px;
-  min-height: 80px;
+  height: 130px;
   background: rgba(150, 150, 150, 0.2);
 }
 #winner {
   color: #FFD64F;
+}
+
+/* Remove some styles on phones */
+@media (min-width: 768px) {
+  body {
+    background: -webkit-linear-gradient(left top, #7C3C83, #D65671, #FFD64F);
+    background: -o-linear-gradient(bottom right, #7C3C83, #D65671, #FFD64F);
+    background: -moz-linear-gradient(bottom right, #7C3C83, #D65671, #FFD64F);
+    background: linear-gradient(to bottom right, #7C3C83, #D65671, #FFD64F);
+
+    font-size: 2em;
+  }
+  .container {
+    margin-top: 80px;
+  }
+  h1 {
+    font-size: 2em;
+  }
+}
+
+/* Add some styles on phones */
+@media (max-width: 768px) {
+  .avatar {
+    max-height: 80px;
+  }
+  .pick-avatar {
+    max-height: 80px;
+    max-width: 80px;
+  }
+  .pick-avatar:active {
+    border: 2px dotted #FFF;
+  }
+  .cards {
+    max-height: 80px;
+  }
+  #dealer-hand, #player-hand {
+    max-height: 80px;
+  }
 }
 
 /* Tooltips */

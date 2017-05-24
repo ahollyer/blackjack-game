@@ -145,37 +145,10 @@ function endGame() {
 
 
 $(document).ready(function() {
-  // CUSTOMIZE NAME/AVATAR
-  $(".hint-text").before("<img class='avatar' src='/img/" + playerAvatar + ".png' alt='" + playerAvatar + "'>");
-
-  avatars.forEach(function(animal) {
-    $(".modals-body .row").append("<div class='col'><img class='avatar pick-avatar img-fluid' src='/img/" + animal + ".png' alt='" + animal + "'><br><figcaption>" + animal + "</figcaption></div>");
-  });
-
-  $("#table").on("click", "#player-avatar img", function() {
-    $("#player-modal").show();
-  });
-  $(".close").click(function() {
-    $("#player-modal").hide();
-  });
-
-  $(".pick-avatar").click(function() {
-    let img = $(".pick-avatar")[0].outerHTML;
-    $("#player-avatar img").replaceWith(img);
-  })
-
-  $(".container").on("click", "#save-name", function () {
-    player = $("#name-field").val();
-    console.log(player);
-    $(this).find("#player-points").before().append(player);
-  });
-
-
-
   // GAMEPLAY
   shuffle();
   deal();
-  $("#player-points").before(player);
+  $("#your-name").text(player);
   displayPoints("#player-points", playerHand);
 
   $("#deal-button").click(function() {
@@ -207,4 +180,30 @@ $(document).ready(function() {
     endGame();
   });
 
+
+  // CUSTOMIZE NAME/AVATAR
+  $(".hint-text").before("<img class='avatar' src='/img/" + playerAvatar + ".png' alt='" + playerAvatar + "'>");
+
+  avatars.forEach(function(animal) {
+    $(".modals-body .row").append("<div class='col'><img class='avatar pick-avatar img-fluid' src='/img/" + animal + ".png' alt='" + animal + "'><br><figcaption>" + animal + "</figcaption></div>");
+  });
+
+  $("body").on("click", "#player-avatar img", function() {
+    $("#player-modal").show();
+  });
+  $(".close").click(function() {
+    $("#player-modal").hide();
+  });
+
+  $("body").on("click", ".pick-avatar", function() {
+    console.log('clicked avatar');
+    let img = $(this)[0].outerHTML;
+    $("#player-avatar img").replaceWith(img);
+  })
+
+  $("body").on("click", "#save-name", function () {
+    player = $("#name-field").val();
+    $("#your-name").text(player);
+    $("#player-modal").hide();
+  });
 });
