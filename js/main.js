@@ -6,7 +6,7 @@ var playerAvatar = 'giraffe';
 var playerHand = [];
 
 // Player Info
-var avatars = ['elephant', 'giraffe', 'hippo', 'monkey', 'panda', 'parrot', 'penguin', 'pig', 'snake'];
+var avatars = ['giraffe', 'elephant', 'hippo', 'monkey', 'panda', 'parrot', 'penguin', 'pig', 'snake'];
 
 // Build Card Deck
 function card(rank, suit) {
@@ -84,7 +84,6 @@ function shuffle() {
 
 
 
-
 // Check for Win/Loss
 function calcPoints(hand) {
   let ptsTotal = 0;
@@ -145,29 +144,38 @@ function endGame() {
 
 
 
-
 $(document).ready(function() {
   // CUSTOMIZE NAME/AVATAR
   $(".hint-text").before("<img class='avatar' src='/img/" + playerAvatar + ".png' alt='" + playerAvatar + "'>");
 
   avatars.forEach(function(animal) {
-    $(".modals-body .row").append("<div class='col'><img class='avatar img-fluid' src='/img/" + animal + ".png' alt='" + animal + "'><br><figcaption>" + animal + "</figcaption></div>");
+    $(".modals-body .row").append("<div class='col'><img class='avatar pick-avatar img-fluid' src='/img/" + animal + ".png' alt='" + animal + "'><br><figcaption>" + animal + "</figcaption></div>");
   });
 
-  $("#player-avatar img").click(function() {
+  $("#table").on("click", "#player-avatar img", function() {
     $("#player-modal").show();
   });
   $(".close").click(function() {
     $("#player-modal").hide();
   });
 
+  $(".pick-avatar").click(function() {
+    let img = $(".pick-avatar")[0].outerHTML;
+    $("#player-avatar img").replaceWith(img);
+  })
 
+  $(".container").on("click", "#save-name", function () {
+    player = $("#name-field").val();
+    console.log(player);
+    $(this).find("#player-points").before().append(player);
+  });
 
 
 
   // GAMEPLAY
   shuffle();
   deal();
+  $("#player-points").before(player);
   displayPoints("#player-points", playerHand);
 
   $("#deal-button").click(function() {

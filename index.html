@@ -40,7 +40,7 @@
           <div id="player-avatar" class="hint">
             <span class="hint-text">Click to Change Avatar</span>
           </div>
-          <label>You<span id="player-points" class="points"></span>
+          <label><span id="player-points" class="points"></span>
 </label>
         </div><!-- .col -->
         <div id="player-hand" class="hand col-md-8 text-left">
@@ -55,24 +55,30 @@
         </div> <!-- .buttons -->
       </div><!-- .row -->
     </div> <!-- #table -->
+
+    <!-- Player Modal -->
+    <div id="player-modal" class="modals">
+      <div class="modals-content">
+        <div class="modals-header">
+          <span class="close btn-default">&times;</span>
+          <h2>I'm a . . .</h2>
+        </div><!-- .modals-header -->
+        <div class="modals-body">
+          <div class="row justify-content-md-center text-center"></div>
+        </div><!-- .modals-body -->
+        <div class="modals-footer">
+          <form class="form-inline">
+            <label for="name-field">Name: </label>
+            <input type="text" class="form-control" id="name-field" placeholder="You">
+
+            <button id="save-name" class="btn-default">Save</button>
+          </form>
+        </div><!-- .modals-footer -->
+      </div><!-- .modals-content -->
+    </div><!-- .player-modal -->
+    
   </div><!-- .container -->
 
-  <!-- Player Modal -->
-  <div id="player-modal" class="modals">
-    <div class="modals-content">
-      <div class="modals-header">
-        <span class="close">&times;</span>
-        <h2>I'm a . . .</h2>
-      </div>
-      <div class="modals-body">
-        <div class="row justify-content-md-center text-center"></div>
-      </div>
-      <div class="modals-footer">
-        <h3>Name:</h3>
-      </div>
-    </div>
-
-  </div>
 
 </body>
 </html>
