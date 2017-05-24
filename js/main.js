@@ -185,10 +185,10 @@ $(document).ready(function() {
   $(".hint-text").before("<img class='avatar' src='/img/" + playerAvatar + ".png' alt='" + playerAvatar + "'>");
 
   avatars.forEach(function(animal) {
-    $(".modals-body .row").append("<div class='col'><img class='avatar pick-avatar img-fluid' src='/img/" + animal + ".png' alt='" + animal + "'><br><figcaption>" + animal + "</figcaption></div>");
+    $(".modals-body .row").append("<div class='choices'><img class='avatar pick-avatar img-fluid' src='/img/" + animal + ".png' alt='" + animal + "'><br><figcaption>" + animal + "</figcaption></div>");
   });
 
-  $("body").on("click", "#player-avatar img", function() {
+  $("body").on("click", "#player-avatar", function() {
     $("#player-modal").show();
   });
   $(".close").click(function() {

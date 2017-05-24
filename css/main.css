@@ -45,9 +45,12 @@ form input {
   font-family: 'Righteous', sans-serif;
   font-size: 12px !important;
 }
+.choices {
+  display: inline-block;
+  margin: 8px;
+}
 #dealer-hand, #player-hand {
   margin-top: 5px;
-  height: 130px;
   background: rgba(150, 150, 150, 0.2);
 }
 #winner {
@@ -77,7 +80,7 @@ form input {
   .avatar {
     max-height: 80px;
   }
-  .pick-avatar {
+  .avatar {
     max-height: 50px;
     max-width: 50px;
   }
@@ -85,9 +88,6 @@ form input {
     border: 2px dotted #FFF;
   }
   .cards {
-    max-height: 80px;
-  }
-  #dealer-hand, #player-hand {
     max-height: 80px;
   }
 }
@@ -116,6 +116,12 @@ form input {
     transition: opacity 1s;
 
     font-size: 0.7em;
+}
+/* Show tooltip on phones */
+@media (max-width: 576px) {
+  .hint .hint-text {
+    visibility: visible;
+  }
 }
 .hint .hint-text::after {
     content: "";
