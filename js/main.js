@@ -199,7 +199,7 @@ $(document).ready(function() {
     console.log('clicked avatar');
     let img = $(this)[0].outerHTML;
     $("#player-avatar img").replaceWith(img);
-  })
+  });
 
   $("body").on("click", "#save-name", function () {
     player = $("#name-field").val();

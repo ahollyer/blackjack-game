@@ -55,7 +55,7 @@ form input {
 }
 
 /* Remove some styles on phones */
-@media (min-width: 768px) {
+@media (min-width: 576px) {
   body {
     background: -webkit-linear-gradient(left top, #7C3C83, #D65671, #FFD64F);
     background: -o-linear-gradient(bottom right, #7C3C83, #D65671, #FFD64F);
@@ -73,13 +73,13 @@ form input {
 }
 
 /* Add some styles on phones */
-@media (max-width: 768px) {
+@media (max-width: 576px) {
   .avatar {
     max-height: 80px;
   }
   .pick-avatar {
-    max-height: 80px;
-    max-width: 80px;
+    max-height: 50px;
+    max-width: 50px;
   }
   .pick-avatar:active {
     border: 2px dotted #FFF;
