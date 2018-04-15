@@ -1,2 +1,4 @@
-# blackjack-game
-An in-browser blackjack game
+# Blackjack Bunny
+## An in-browser blackjack game
+-------------
+http://blackjack-bunny.aspenhollyer.com
